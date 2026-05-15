@@ -4,7 +4,7 @@
   "description": "Kimoto Market Telegram Bot Backend",
   "main": "api/bot.js",
   "scripts": {
-    "start": "node api/bot.js",
+    "start": "node bot.js",
     "dev": "nodemon api/bot.js",
     "set-webhook": "node scripts/setWebhook.js"
   },
