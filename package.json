@@ -2,7 +2,7 @@
   "name": "kimoto-market-bot",
   "version": "1.0.0",
   "description": "Kimoto Market Telegram Bot Backend",
-  "main": "api/bot.js",
+  "main": "bot.js",
   "scripts": {
     "start": "node bot.js",
     "dev": "nodemon api/bot.js",
