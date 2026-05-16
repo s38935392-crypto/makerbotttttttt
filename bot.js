@@ -5,13 +5,17 @@ const { createClient } = require("@supabase/supabase-js");
 // =====================
 // ENV VARIABLES
 // =====================
-
+const BOT_TOKEN = process.env.BOT_TOKEN;
+const ADMIN_ID = process.env.ADMIN_TELEGRAM_ID; 
+const SUPABASE_URL = process.env.SUPABASE_URL;
+const SUPABASE_KEY = process.env.SUPABASE_SERVICE_KEY;
+const WEBAPP_URL = process.env.WEBAPP_URL || "https://smm-market.vercel.app/";
 
 // =====================
 // KARTA MA'LUMOTLARI (o'zgartiring)
 // =====================
 const CARD_NUMBER = "8600 1234 5678 9012";
-const CARD_OWNER = "KIMOTO MARKET";
+const CARD_OWNER = "SMM MARKET";
 const CARD_BANK = "Uzcard";
 
 // =====================
@@ -73,7 +77,7 @@ bot.start(async (ctx) => {
   const isAdmin = String(user.id) === String(ADMIN_ID);
 
   await ctx.reply(
-    `👋 Xush kelibsiz, ${user.first_name}!\n\nKIMOTO MARKET'ga xush kelibsiz! 🛒`,
+    `👋 Xush kelibsiz, ${user.first_name}!\n\nSMM MARKET'ga xush kelibsiz! 🛒`,
     mainMenu(isAdmin)
   );
 });
@@ -384,7 +388,7 @@ bot.action("admin_users", async (ctx) => {
   let text = `👥 <b>Foydalanuvchilar</b> (jami: ${count})\n\n`;
   users?.forEach((u, i) => {
     text += `${i + 1}. ${u.full_name || "Nomsiz"} ${u.username ? "@" + u.username : ""}\n`;
-    text += `   💰 Balans: ${(u.balance || 0).toLocaleString()} UZS | ID: <code>${u.telegram_id}</code>\n\n`;
+    text += `    💰 Balans: ${(u.balance || 0).toLocaleString()} UZS | ID: <code>${u.telegram_id}</code>\n\n`;
   });
 
   await ctx.answerCbQuery();
@@ -410,7 +414,7 @@ bot.action("admin_orders", async (ctx) => {
     orders.forEach((o, i) => {
       const statusEmoji = o.status === "completed" ? "✅" : o.status === "cancelled" ? "❌" : "⏳";
       text += `${i + 1}. ${statusEmoji} <b>${o.product_name}</b>\n`;
-      text += `   💰 ${(o.amount || 0).toLocaleString()} UZS | ID: <code>${o.user_id}</code>\n\n`;
+      text += `    💰 ${(o.amount || 0).toLocaleString()} UZS | ID: <code>${o.user_id}</code>\n\n`;
     });
   }
 
@@ -437,7 +441,7 @@ bot.action("admin_payments", async (ctx) => {
     payments.forEach((p, i) => {
       const statusEmoji = p.status === "approved" ? "✅" : p.status === "rejected" ? "❌" : "⏳";
       text += `${i + 1}. ${statusEmoji} ${p.full_name || "Nomsiz"}\n`;
-      text += `   💵 ${(p.amount || 0).toLocaleString()} UZS | ID: <code>${p.user_id}</code>\n\n`;
+      text += `    💵 ${(p.amount || 0).toLocaleString()} UZS | ID: <code>${p.user_id}</code>\n\n`;
     });
   }
 
