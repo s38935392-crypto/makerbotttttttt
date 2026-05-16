@@ -5,11 +5,7 @@ const { createClient } = require("@supabase/supabase-js");
 // =====================
 // ENV VARIABLES
 // =====================
-const BOT_TOKEN = "8670746601:AAFwsnaGTE3bWhHMrCPyVGfWyfsGjWAnK";
-const ADMIN_ID = "8475619369";
-const SUPABASE_URL = "https://rawynepnpwvmbmohzxtz.supabase.co";
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJhd3luZXBucHd2bWJtb2h6eHR6Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3ODYzODY4MywiZXhwIjoyMTM0NDAzMDQwMH0.IZfWneNtSQaGwkjx5O6eC8K4lG88_G35R5CNAdwQw28";
-const WEBAPP_URL = "https://my-market-one.vercel.app";
+
 
 // =====================
 // KARTA MA'LUMOTLARI (o'zgartiring)
